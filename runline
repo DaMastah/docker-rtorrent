@@ -1,0 +1,1 @@
+docker run -it -p 51808:51808 -p 51809:51809/udp -v /mnt/iscsi/targetnuc/rtorrent:/rtorrent docktorrent

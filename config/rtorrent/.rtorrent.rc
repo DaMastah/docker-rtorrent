@@ -1,4 +1,4 @@
-# This is an example resource file for rTorrent. Copy to
+# This is an example resource fi for rTorrent. Copy to
 # ~/.rtorrent.rc and enable/modify the options as needed. Remember to
 # uncomment the options you wish to enable.
 
@@ -18,16 +18,16 @@ download_rate = 0
 upload_rate = 0
 
 # Default directory to save the downloaded torrents.
-directory = /rtorrent/incomplete/
+directory = /mnt/iscsi/targetnuc/rtorrent/incomplete/
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
-session = /rtorrent/session/
+session = /mnt/iscsi/targetnuc/rtorrent/session/
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory,5,5,"load_start=/rtorrent/incoming/*.torrent"
+schedule = watch_directory,5,5,"load_start=/mnt/iscsi/targetnuc/rtorrent/incoming/*.torrent"
 #schedule = untied_directory,5,5,stop_untied=
 
 # Close torrents when diskspace is low.
@@ -87,9 +87,10 @@ peer_exchange = yes
 system.file_allocate.set = yes
 
 # For ruTorrent
-execute_nothrow = rm,/rtorrent/rpc.socket
-scgi_local = /rtorrent/rpc.socket
-schedule = chmod,0,0,"execute=chmod,777,/rtorrent/rpc.socket"
+execute_nothrow = rm,/mnt/iscsi/targetnuc/rtorrent/rpc.socket
+scgi_local = /mnt/iscsi/targetnuc/rtorrent/rpc.socket
+schedule = chmod,0,0,"execute=chmod,777,/mnt/iscsi/targetnuc/rtorrent/rpc.socket"
+execute = {curl,-s,"http://nuc/rutorrent/php/initplugins.php &"}
 
 # Encoding
 encoding_list = UTF-8

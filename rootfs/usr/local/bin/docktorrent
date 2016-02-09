@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Turn off all logs
-[ "${LOGS_OFF}" == "yes" ] || [ "${LOGS_OFF}" == "y" ] && {
-    sed -i '/^log./d' /root/.rtorrent.rc
-}
-
-# Use s6 to supervise all services
-exec /usr/bin/s6-svscan -t0 /service

@@ -57,26 +57,20 @@ RUN apt-get update && apt-get install -q -y --no-install-recommends \
     apache2-utils \
     libc-ares2 \
     libxml2
-    #nginx \
-    #php5-cli \
-    #php5-fpm
 
 COPY config/rtorrent/.rtorrent.rc /root/.rtorrent.rc
-
-# Add the s6 binaries fs layer
-ADD s6-1.1.3.2-musl-static.tar.xz /
 
 # Service directories and the wrapper script
 COPY rootfs /
 
 # Run the wrapper script first
-ENTRYPOINT ["/usr/local/bin/docktorrent"]
+#ENTRYPOINT ["/usr/local/bin/docktorrent"]
 
 # Declare ports to expose
 EXPOSE 51808 51809
 
 # Declare volumes
-VOLUME ["/rtorrent", "/var/log"]
+VOLUME ["/mnt/iscsi/targetnuc/rtorrent", "/var/log"]
 
 # This should be removed in the latest version of Docker
 ENV HOME /root
