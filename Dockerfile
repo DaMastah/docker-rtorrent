@@ -50,10 +50,8 @@ RUN build_deps="automake build-essential ca-certificates libc-ares-dev libcppuni
     rm -rf rtorrent-* && \
     ldconfig && \
     apt-get purge -y --auto-remove ${build_deps} && \
-    apt-get autoremove -y
-
-# Install required packages
-RUN apt-get update && apt-get install -q -y --no-install-recommends \
+    apt-get autoremove -y && \
+    apt-get update && apt-get install -q -y --no-install-recommends \
     apache2-utils \
     libc-ares2 \
     libxml2 && \
