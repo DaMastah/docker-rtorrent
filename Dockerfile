@@ -54,8 +54,9 @@ RUN build_deps="automake build-essential ca-certificates libc-ares-dev libcppuni
 
 # Install required packages
 RUN apt-get update && apt-get install -q -y --no-install-recommends \
-    #apache2-utils \
+    apache2-utils \
     libc-ares2 \
+    libxml2
     #nginx \
     #php5-cli \
     #php5-fpm
