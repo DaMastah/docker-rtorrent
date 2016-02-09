@@ -56,7 +56,9 @@ RUN build_deps="automake build-essential ca-certificates libc-ares-dev libcppuni
 RUN apt-get update && apt-get install -q -y --no-install-recommends \
     apache2-utils \
     libc-ares2 \
-    libxml2
+    libxml2 && \
+    apt-get clean && \
+    apt-get autoclean
 
 COPY config/rtorrent/.rtorrent.rc /root/.rtorrent.rc
 
