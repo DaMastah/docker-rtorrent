@@ -90,7 +90,7 @@ system.file_allocate.set = yes
 execute_nothrow = rm,/mnt/iscsi/targetnuc/rtorrent/rpc.socket
 scgi_local = /mnt/iscsi/targetnuc/rtorrent/rpc.socket
 schedule = chmod,0,0,"execute=chmod,777,/mnt/iscsi/targetnuc/rtorrent/rpc.socket"
-execute = {curl,-s,"http://nuc/rutorrent/php/initplugins.php &"}
+execute = {sh,-c,/usr/local/bin/curl -s "http://nuc/rutorrent/php/initplugins.php &"}
 
 # Encoding
 encoding_list = UTF-8
